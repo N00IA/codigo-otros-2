@@ -2,7 +2,7 @@ var formulario = document.querySelector("#form")
 
 formulario.onsubmit = function(e) {
 
-  e.prevent();
+  e.preventDefault();// Le faltaba el Default al prevent
   
   var n = formulario.elements[0]
   var e = formulario.elements[1]
@@ -23,9 +23,7 @@ formulario.onsubmit = function(e) {
     e.classList.add("error")
   }
 
-if (nombre.length > 0 
-  && (edad > 18 
-    && edad < 120) ) {
+if (nombre.length > 0 && (edad > 18 && edad < 120) ) { //Queda en una linea para que sea más claro
   agregarInvitado(nombre, edad, nacionalidad)
   }
 }
