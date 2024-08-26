@@ -1,4 +1,5 @@
-var formulario = document.querySelector("#form")
+//El selector que estás utilizando para seleccionar el formulario es incorrecto
+var formulario = document.querySelector(".formulario")
 
 formulario.onsubmit = function(e) {
 
@@ -9,12 +10,15 @@ formulario.onsubmit = function(e) {
   var na = formulario.elements[2]
 
   var nombre = n.value
-  var edad = e.value
-
+  //se cambio e ya que crearia confusiones
+var edadCampo = formulario.elements[1]
+  
   var i = na.selectedIndex
   var nacionalidad = na.options[i].value
-  console.log(nombre, edad)
-  console.log(nacionalidad)
+
+  //se comentaron
+  //console.log(nombre, edad)
+  //console.log(nacionalidad)
 
   if (nombre.length === 0) {
     n.classList.add("error")
@@ -27,13 +31,13 @@ if (nombre.length > 0 && (edad > 18 && edad < 120) ) { //Queda en una linea para
   agregarInvitado(nombre, edad, nacionalidad)
   }
 }
-
-var botonBorrar = document.createElement("button")
+ //elemnto dupicado y hasta abajo estaba el boton//
+/* var botonBorrar = document.createElement("button")
 botonBorrar.textContent = "Eliminar invitado"
 botonBorrar.id = "boton-borrar"
 var corteLinea = document.createElement("br")
 document.body.appendChild(corteLinea)
-document.body.appendChild(botonBorrar);
+document.body.appendChild(botonBorrar); */
 
 function agregarInvitado(nombre, edad, nacionalidad) {
 
@@ -56,15 +60,7 @@ var elementoLista = document.createElement("div")
 elementoLista.classList.added("elemento-lista")
 lista.appendChild(elementoLista)
 
-var spanNombre = document.createElement("span")
-var inputNombre = document.createElement("input")
-var espacio = document.createElement("br")
-spanNombre.textContent = "Nombre: "
-inputNombre.value = nombre 
-elementoLista.appendChild(spanNombre)
-elementoLista.appendChild(inputNombre)
-elementoLista.appendChild(espacio)
-
+//se eliminaron lineas duplicadas
 function crearElemento(descripcion, valor) {
 var spanNombre = document.createElement("span")
 var inputNombre = document.createElement("input")
@@ -89,7 +85,6 @@ elementoLista.appendChild(corteLinea)
 elementoLista.appendChild(botonBorrar);
 
  botonBorrar.onclick = function() {
-// this.parentNode.style.display = 'none';
 botonBorrar.parentNode.remove()
   }
 }
